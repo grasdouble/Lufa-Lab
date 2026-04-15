@@ -1,0 +1,27 @@
+# Dependencies
+node_modules
+pnpm-lock.yaml
+
+# tools
+.changeset
+
+# Build outputs
+dist
+build
+.docusaurus
+
+# Cache
+.cache
+*.log
+
+# Generated files
+*.d.ts
+
+#BNAD
+_bmad
+_bmad-output
+#BMAD generated files
+bmad-*
+
+#storybook
+storybook-static

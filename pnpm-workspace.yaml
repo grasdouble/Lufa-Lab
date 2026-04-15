@@ -1,0 +1,9 @@
+packages:
+  - packages/cli/*
+  - packages/web/*
+
+hoist: false
+preferWorkspacePackages: true
+
+onlyBuiltDependencies:
+  - esbuild
