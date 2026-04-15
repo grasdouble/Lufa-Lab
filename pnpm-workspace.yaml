@@ -1,9 +1,16 @@
 packages:
   - packages/cli/*
   - packages/web/*
+  - packages/web/git-dashboard
+  - packages/web/package-visualizer
+  - packages/web/package-visualizer/client
+  - packages/web/package-visualizer/server
+  - packages/web/package-visualizer/vscode-extension
 
 hoist: false
 preferWorkspacePackages: true
 
 onlyBuiltDependencies:
+  - '@vscode/vsce-sign'
   - esbuild
+  - keytar

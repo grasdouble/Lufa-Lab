@@ -1,0 +1,12 @@
+{
+  "name": "@package-visualizer/root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n server,client -c cyan,green \"pnpm --filter @package-visualizer/server dev\" \"pnpm --filter @package-visualizer/client dev\"",
+    "dev:vscode": "concurrently -n ext,webview -c magenta,yellow \"pnpm --filter package-visualizer-vscode watch\" \"pnpm --filter package-visualizer-vscode watch:webview\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

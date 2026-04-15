@@ -1,0 +1,43 @@
+{
+  "name": "git-dashboard",
+  "version": "0.1.0",
+  "description": "Analyzes conventional commits on a branch, grouping and counting them by type (feat, fix, chore, docs, refactor, test, perf, ci, build, revert, ...)",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "git-dashboard": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "serve.mjs",
+    "lib/"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./lib/git": "./lib/git.js",
+    "./lib/github": "./lib/github.js",
+    "./lib/stats": "./lib/stats.js",
+    "./lib/reporters/json": "./lib/reporters/json.js",
+    "./lib/reporters/markdown": "./lib/reporters/markdown.js",
+    "./lib/reporters/html": "./lib/reporters/html.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "analyze": "node index.js --since '3 months ago'",
+    "analyze:main": "node index.js --branch origin/main --since '3 months ago'",
+    "open": "node index.js && node serve.mjs",
+    "serve": "node serve.mjs",
+    "prepublishOnly": "node --input-type=module <<'EOF'\nimport { existsSync } from 'fs';\nconst required = ['index.js', 'serve.mjs', 'lib/git.js', 'lib/github.js', 'lib/stats.js'];\nconst missing = required.filter(f => !existsSync(f));\nif (missing.length) { console.error('Missing files:', missing); process.exit(1); }\nconsole.log('Pre-publish check passed.');\nEOF"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "git",
+    "conventional-commits",
+    "commit-analysis",
+    "dashboard",
+    "github"
+  ],
+  "license": "MIT"
+}
